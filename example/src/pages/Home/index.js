@@ -1,17 +1,17 @@
 import { compose, lifecycle } from 'recompose'
 import { connect } from 'react-redux';
 import Home from './screen';
+import { getImages } from '../../services/Flickr';
 
 const mapStateToProps = (state) => {
-  return {
-    images: state.gallery.images
-  }
+  return { ...state.gallery }
 }
 
 export default compose(
   connect(mapStateToProps),
   lifecycle({
-    componentDidMount: () => {
+    componentDidMount() {
+      getImages()
     }
   })
 )(Home)

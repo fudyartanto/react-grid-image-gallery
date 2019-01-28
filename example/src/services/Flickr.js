@@ -1,15 +1,19 @@
-window.flickrCallback = (data) => {
-  console.log(data)
+
+import store from '../redux/Store'
+import { GET_GALLERY } from '../redux/ActionTypes'
+import Flickr from '../utils/Flickr';
+
+window.getImagesCallback = (data) => {
+  store.dispatch({ type: GET_GALLERY.SUCCEED, payload: data.photos.photo })
 }
 
-export const searchImages = (text) => {
-  return new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = 'http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=flickrCallback&tags=london&tagmode=any&format=json'
-    document.head.appendChild(script);
+export const getImages = (text) => {
+  store.dispatch({ type: GET_GALLERY.REQUEST })
+  const script = document.createElement('script')
+  script.src = Flickr.getUrl({
+    method: text ? 'flickr.photos.search' : 'flickr.photos.getRecent',
+    callback: 'getImagesCallback',
+    params: { text }
   })
-}
-
-export default {
-  searchImages,
+  document.head.appendChild(script)
 }

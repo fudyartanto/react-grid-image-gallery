@@ -79,6 +79,7 @@ function getClientEnvironment(publicUrl) {
         PUBLIC_URL: publicUrl,
         FLICKR_API_KEY: process.env.FLICKR_API_KEY,
         FLICKR_API_SECRET: process.env.FLICKR_API_SECRET,
+        FLICKR_API_URL: process.env.FLICKR_API_URL,
       }
     );
   // Stringify all values so we can feed into Webpack DefinePlugin

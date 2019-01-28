@@ -8,6 +8,7 @@ const middleware = [
 
 const initialState = {
   gallery: {
+    isLoading: false,
     images: []
   }
 }
