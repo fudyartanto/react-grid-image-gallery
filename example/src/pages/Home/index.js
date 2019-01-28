@@ -1,26 +1,17 @@
-// @flow
-import React, { Component } from 'react'
-import GridImageGallery from 'react-grid-image-gallery'
-import Flickr from '../../services/Flickr';
+import { compose, lifecycle } from 'recompose'
+import { connect } from 'react-redux';
+import Home from './screen';
 
-type Props = {}
-type State = {}
-
-class App extends Component<Props, State> {
-  componentDidMount = () => {
-    console.log('test')
-    Flickr.searchImages('cats').then((data) => {
-      console.log(data)
-    })
-  }
-
-  render() {
-    return (
-      <div>
-        <GridImageGallery text='Test'/>
-      </div>
-    )
+const mapStateToProps = (state) => {
+  return {
+    images: state.gallery.images
   }
 }
 
-export default App
+export default compose(
+  connect(mapStateToProps),
+  lifecycle({
+    componentDidMount: () => {
+    }
+  })
+)(Home)
