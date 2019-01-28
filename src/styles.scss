@@ -1,0 +1,28 @@
+.container {
+  width: 1400px;
+  margin: 0 auto;
+
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  .item {
+    height: 320px;
+    width: 320px;
+    float: left;
+    display: block;
+    background-position: center center;
+    background-size: cover;
+    margin: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .image {
+      opacity: 0;
+    }
+  }
+}
+
+

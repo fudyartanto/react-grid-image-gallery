@@ -1,9 +1,4 @@
-import React from 'react'
+import { compose } from 'recompose'
+import Header from './screen'
 
-const Header = () => {
-  return (
-    <div>Hello Header</div>
-  )
-}
-
-export default Header
+export default compose()(Header)

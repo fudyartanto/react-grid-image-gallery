@@ -11,7 +11,7 @@ export default compose(
   connect(mapStateToProps),
   lifecycle({
     componentDidMount() {
-      getImages()
+      getImages('traditional')
     }
   })
 )(Home)

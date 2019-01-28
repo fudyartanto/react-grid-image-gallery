@@ -4,7 +4,13 @@ import { GET_GALLERY } from '../redux/ActionTypes'
 import Flickr from '../utils/Flickr';
 
 window.getImagesCallback = (data) => {
-  store.dispatch({ type: GET_GALLERY.SUCCEED, payload: data.photos.photo })
+  const image = ` `
+  const payload = data.photos.photo.map((item) => {
+    return {
+      url: `https://farm${item.farm}.staticflickr.com/${item.server}/${item.id}_${item.secret}_n.jpg`,
+    }
+  })
+  store.dispatch({ type: GET_GALLERY.SUCCEED, payload })
 }
 
 export const getImages = (text) => {

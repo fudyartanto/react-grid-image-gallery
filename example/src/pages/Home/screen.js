@@ -11,8 +11,7 @@ const Home = (props: Props) => {
   const { isLoading, images }  = props
   return (
     <div>
-      {isLoading ? 'loading...' : images.length }
-      <GridImageGallery text='Test'/>
+      <GridImageGallery images={images} isLoading={isLoading} />
     </div>
   )
 }
