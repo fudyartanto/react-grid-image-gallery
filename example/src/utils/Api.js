@@ -11,10 +11,13 @@ Api.interceptors.request.use(function (config) {
     config.params = {
       api_key: Config.FLICKR_API_KEY,
       format: 'json',
+      // nojsoncallback: 1,
     }
+    console.log(config)
     resolve(config)
   })
 }, function (error) {
+  console.log(error)
   return Promise.reject(error)
 })
 
