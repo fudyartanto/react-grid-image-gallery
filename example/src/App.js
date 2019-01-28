@@ -18,7 +18,7 @@ class App extends Component<Props> {
             <Header/>
             <div className={styles.main}>
               <Route exact path='/' component={Home} />
-              <Route path='/:code' component={Home} />
+              <Route path='/:query' component={Home} />
             </div>
           </div>
         </Router>

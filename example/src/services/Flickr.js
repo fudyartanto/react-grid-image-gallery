@@ -8,7 +8,10 @@ const PER_PAGE = 96
 window.getImagesCallback = (data) => {
   const images = data.photos.photo.map((item) => {
     return {
+      title: item.owner,
+      description: item.title,
       url: `https://farm${item.farm}.staticflickr.com/${item.server}/${item.id}_${item.secret}_n.jpg`,
+      fullSizeUrl: `https://farm${item.farm}.staticflickr.com/${item.server}/${item.id}_${item.secret}_h.jpg`,
     }
   })
   store.dispatch({ type: GET_GALLERY.SUCCEED, payload: {

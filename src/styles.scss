@@ -18,10 +18,47 @@
     margin: 15px;
     border-radius: 5px;
     overflow: hidden;
+    position: relative;
 
     .image {
       opacity: 0;
     }
+
+    .caption {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      color: white;
+
+      .title {
+
+      }
+
+      .description {
+        width: 250px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+
+.loadMoreContainer {
+  text-align: center;
+
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  > div {
+    display: inline-block;
+    float: none;
   }
 }
 
