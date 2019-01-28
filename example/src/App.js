@@ -5,9 +5,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import store from './redux/Store';
 import Header from './components/Header'
 import Home from './pages/Home'
+import styles from './App.scss'
 
 type Props = {}
-
 
 class App extends Component<Props> {
   render () {
@@ -16,7 +16,7 @@ class App extends Component<Props> {
         <Router>
           <div>
             <Header/>
-            <div>
+            <div className={styles.main}>
               <Route exact path='/' component={Home} />
               <Route path='/:code' component={Home} />
             </div>

@@ -9,7 +9,8 @@ const middleware = [
 const initialState = {
   gallery: {
     isLoading: false,
-    images: []
+    images: [],
+    query: 'bali'
   }
 }
 

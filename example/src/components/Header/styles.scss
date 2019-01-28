@@ -1,4 +1,23 @@
 .header {
   background-color: white;
   position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 20px 0;
+  -webkit-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 4px 5px 0 rgba(0, 0, 0, 0.06), 0 1px 10px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 4px 5px 0 rgba(0, 0, 0, 0.06), 0 1px 10px 0 rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+
+  .wrapper {
+    width: 320px;
+    margin:  0 auto;
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 3px;
+      border: solid 1px #dddddd;
+    }
+  }
 }
