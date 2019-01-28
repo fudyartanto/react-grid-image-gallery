@@ -20,7 +20,9 @@ export default compose(
     search: ({
       queryValue,
     }) => () => {
-      getImages(queryValue)
+      getImages({
+        text: queryValue,
+      })
     }
   })
 )(Header)

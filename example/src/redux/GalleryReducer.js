@@ -11,7 +11,8 @@ export default (state = {}, action) => {
       return {
         ...state,
         isLoading: false,
-        images: action.payload
+        images: action.payload.images,
+        page: action.payload.page,
       }
     default:
       return state

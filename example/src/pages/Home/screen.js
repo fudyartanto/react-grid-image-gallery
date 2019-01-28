@@ -3,15 +3,27 @@ import React from 'react';
 import GridImageGallery from 'react-grid-image-gallery'
 
 type Props = {
-  isLoading: boolean,
   images: Array<{ id: string}>,
+  isLoading: boolean,
+  isLoadingMore: boolean,
+  loadMore: Function,
 }
 
 const Home = (props: Props) => {
-  const { isLoading, images }  = props
+  const {
+    images,
+    isLoading,
+    isLoadingMore,
+    loadMore,
+  }  = props
   return (
     <div>
-      <GridImageGallery images={images} isLoading={isLoading} />
+      <GridImageGallery
+        images={images}
+        isLoading={isLoading}
+        isLoadingMore={isLoadingMore}
+        loadMore={loadMore}
+        hasMore={isLoading === false} />
     </div>
   )
 }

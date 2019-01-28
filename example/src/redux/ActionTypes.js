@@ -1,7 +1,7 @@
+const DONE = 'DONE';
+const FAILED = 'FAILED';
 const REQUEST = 'REQUEST';
 const SUCCEED = 'SUCCEED';
-const FAILED = 'FAILED';
-const DONE = 'DONE';
 
 /**
  * create action types

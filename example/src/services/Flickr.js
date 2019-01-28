@@ -3,23 +3,33 @@ import store from '../redux/Store'
 import { GET_GALLERY } from '../redux/ActionTypes'
 import Flickr from '../utils/Flickr';
 
+const PER_PAGE = 96
+
 window.getImagesCallback = (data) => {
-  const image = ` `
-  const payload = data.photos.photo.map((item) => {
+  const images = data.photos.photo.map((item) => {
     return {
       url: `https://farm${item.farm}.staticflickr.com/${item.server}/${item.id}_${item.secret}_n.jpg`,
     }
   })
-  store.dispatch({ type: GET_GALLERY.SUCCEED, payload })
+  store.dispatch({ type: GET_GALLERY.SUCCEED, payload: {
+    images,
+    page: data.photos.page,
+  }})
 }
 
-export const getImages = (text) => {
+export const getImages = ({
+  text,
+  page,
+}) => {
+  page = page ? page : 1
+
   store.dispatch({ type: GET_GALLERY.REQUEST })
+
   const script = document.createElement('script')
   script.src = Flickr.getUrl({
     method: text ? 'flickr.photos.search' : 'flickr.photos.getRecent',
     callback: 'getImagesCallback',
-    params: { text }
+    params: { text, per_page: PER_PAGE, page }
   })
   document.head.appendChild(script)
 }
