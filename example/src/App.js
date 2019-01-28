@@ -1,13 +1,27 @@
+// @flow
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Home from './pages/Home'
 
-import ExampleComponent from 'react-grid-image-gallery'
+type Props = {}
 
-export default class App extends Component {
+class App extends Component<Props> {
   render () {
     return (
-      <div>
-        <ExampleComponent text='Modern React component module' />
-      </div>
+      <Router>
+        <div>
+          <Header/>
+            <div>
+              <Route exact path='/' component={Home} />
+              <Route path='/:code' component={Home} />
+            </div>
+          <Footer/>
+        </div>
+      </Router>
     )
   }
 }
+
+export default App
