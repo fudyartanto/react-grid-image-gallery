@@ -3,13 +3,19 @@ import React from 'react'
 import styles from './styles.scss'
 
 type Props = {
+  clear: Function,
   queryValue: string | null,
-  setQueryValue: Function,
   search: Function,
+  setQueryValue: Function,
 }
 
 const Header = (props: Props) => {
-  const { queryValue, setQueryValue, search } = props
+  const {
+    clear,
+    queryValue,
+    search,
+    setQueryValue,
+  } = props
   return (
     <div className={styles.header}>
       <div className={styles.wrapper}>
@@ -23,6 +29,13 @@ const Header = (props: Props) => {
               search()
             }
           }}/>
+        {
+          queryValue ? (
+            <button className={styles.buttonSearch} onClick={clear}>
+              <i className='fa fa-times' aria-hidden='true'></i>
+            </button>
+          ) : null
+        }
       </div>
     </div>
   )

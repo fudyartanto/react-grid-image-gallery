@@ -12,12 +12,43 @@
   .wrapper {
     width: 320px;
     margin:  0 auto;
+    position: relative;
+    border: solid 1px #dddddd;
+    border-radius: 3px;
 
     input {
       width: 100%;
       padding: 10px;
-      border-radius: 3px;
-      border: solid 1px #dddddd;
+      border: none;
+      background-color: transparent;
+      box-sizing: border-box;
+      color: #999;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: #999;
+      }
+    }
+
+    .buttonSearch {
+      position: absolute;
+      right: 1px;
+      top: 0;
+      bottom: 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      i {
+        color: #999;
+      }
+
+      &:focus {
+        outline: none;
+      }
     }
   }
 }

@@ -23,6 +23,11 @@ export default compose(
       getImages({
         text: queryValue,
       })
+    },
+    clear: ({
+      setQueryValue
+    }) => () => {
+      setQueryValue('')
     }
   })
 )(Header)
